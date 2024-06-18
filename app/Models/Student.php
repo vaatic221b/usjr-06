@@ -7,17 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable = [
-        'studfirstname', 'studlastname', 'studmidname', 'studprogid', 'studcollid', 'studyear'
-    ];
-
+    protected $primaryKey = 'studid';
+    
     public function program()
     {
-        return $this->belongsTo(Program::class, 'studprogid');
+        return $this->belongsTo(Program::class, 'studprogid', 'progid');
     }
-
+    
     public function college()
     {
-        return $this->belongsTo(College::class, 'studcollid');
+        return $this->belongsTo(College::class, 'studcollid', 'collid');
     }
 }

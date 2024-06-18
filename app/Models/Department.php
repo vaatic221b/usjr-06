@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Department extends Model
 {
-    protected $fillable = ['deptfullname', 'deptshortname', 'deptcollid'];
-
+    protected $primaryKey = 'deptid';
+    
     public function college()
     {
-        return $this->belongsTo(College::class, 'deptcollid');
+        return $this->belongsTo(College::class, 'deptcollid', 'collid');
     }
-
+    
     public function programs()
     {
-        return $this->hasMany(Program::class, 'progcolldeptid');
+        return $this->hasMany(Program::class, 'progcolldeptid', 'deptid');
     }
 }

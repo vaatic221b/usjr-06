@@ -7,15 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Program extends Model
 {
-    protected $fillable = ['progfullname', 'progshortname', 'progcollid', 'progcolldeptid'];
-
-    public function college()
-    {
-        return $this->belongsTo(College::class, 'progcollid');
-    }
-
+    protected $primaryKey = 'progid';
+    
     public function department()
     {
-        return $this->belongsTo(Department::class, 'progcolldeptid');
+        return $this->belongsTo(Department::class, 'progcolldeptid', 'deptid');
     }
 }

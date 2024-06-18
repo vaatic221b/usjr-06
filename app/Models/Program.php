@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Program extends Model
 {
     protected $primaryKey = 'progid';
+
+    public function college()
+    {
+        return $this->belongsTo(College::class, 'progcollid');
+    }
     
     public function department()
     {

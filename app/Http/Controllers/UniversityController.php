@@ -24,9 +24,17 @@ class UniversityController extends Controller
     
     public function showColleges()
     {
-        $colleges = College::with('departments.programs')->get();
-        return view('colleges.all', compact('colleges'));
+        try {
+            $colleges = College::with('departments.programs')->get();
+            return view('colleges.all', compact('colleges'));
+        } catch (\Exception $e) {
+            // Log the error
+            \Log::error('Error fetching colleges: ' . $e->getMessage());
+            // Return an error view or redirect with a message
+            return back()->withError('Error fetching colleges. Please try again later.');
+        }
     }
+    
     
     public function showCollege($id)
     {

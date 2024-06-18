@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container">
-        <h2>Student Details</h2>
+        <h1>Student Details</h2>
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Student ID: {{ $student->studid }}</h5>
+                <h3 class="card-title">Student ID: {{ $student->studid }}</h3>
                 <p class="card-text"><strong>Name:</strong> {{ $student->studfirstname }} {{ $student->studmidname ?? '' }} {{ $student->studlastname }}</p>
                 <p class="card-text"><strong>Program:</strong> {{ $student->program->progfullname }}</p>
                 <p class="card-text"><strong>College:</strong> {{ $student->college->collfullname }}</p>
